@@ -1,6 +1,6 @@
 //Unity3d Js
 var config = {
-				height: 720,
+	height:window.innerHeight-120,
 	params: {                                                 // 文本颜色
 				logoimage: "/Data/images/CustomLogo.png",                             //  logo
 				progressbarimage: "/Data/images/CustomProgressBar.png",              // 加载进度条
