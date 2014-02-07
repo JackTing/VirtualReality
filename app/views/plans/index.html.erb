@@ -1,0 +1,65 @@
+
+ <!-- Page heading -->
+  <div class="page-head">
+    <h2 class="pull-left"><i class="icon-file-alt"></i>计划进度管理</h2>
+    <div class="clearfix"></div>
+  </div>
+  <!-- Page heading ends -->
+  <!-- Matter -->
+    <div class="matter">
+    <div class="container">
+       <div class="col-md-12">
+        <div class="widget">
+              <!-- Widget title -->
+               <div class="widget-head">
+                    <div class="pull-left">计划表</div>
+                    <div class="widget-icons pull-right"></div>  
+                    <div class="clearfix"></div>
+                </div>
+                <!-- widget-content -->
+                 <div class="widget-content">
+      <table class="table table-hover">
+        <thead>
+          <tr>
+            <th>序号</th>
+            <th>工程名称</th>
+            <th>计划工作量</th>
+            <th>完成工程量</th>
+            <th>完成百分比</th>
+            <th></th>
+            <th></th>
+            <th></th>
+          </tr>
+        </thead>
+
+        <tbody>
+          <% @plans.each do |plan| %>
+            <tr>
+              <td><%= plan.wbsno %></td>
+              <td><%= plan.wbsname %></td>
+              <td><%= plan.quantitiesplan %></td>
+              <td><%= plan.quantitiesfact %></td>
+              <td><%= plan.wbspctcomp %></td>
+              <td><%= link_to 'Show', plan, "data-type" => :json, :id => "update_foobar"%></td>
+              <% if can? :update,@plans%>
+              <td><%= link_to 'Edit', edit_plan_path(plan) %></td>
+              <td><%= link_to 'Destroy', plan, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+              <% else %>
+                <td></td>
+                <td></td>
+              <% end %>
+            </tr>
+          <% end %>
+        </tbody>
+      </table>
+      <br>
+          <% if can? :update,@plans%>
+          <%= link_to '新建计划表', new_plan_path%>
+          <% end %>
+      </div>
+      </div>
+      </div>
+  <!-- container ends -->
+  </div>
+</div>
+<!-- Matter ends -->

@@ -1,0 +1,138 @@
+ <!-- Page heading -->
+<div class="page-head">
+    <h2 class="pull-left"><i class="icon-file-alt"></i>模型信息及属性</h2>
+    <div class="clearfix"></div>
+</div>
+  <!-- Page heading ends -->
+  <!-- Matter -->
+  <div class="matter">
+    <div class="container">
+          <!-- col-md-12 -->
+          <div class="col-md-12">
+            <div class="widget">
+                  <!-- Widget title -->
+                   <div class="widget-head">
+                        <div class="pull-left">模型信息</div>
+                        <div class="widget-icons pull-right"></div>  
+                        <div class="clearfix"></div>
+                    </div>
+                    <!-- widget-content -->
+                     <div class="widget-content">
+                         <p id="notice"><%= notice %></p>
+                         <table class="table table-hover">
+                              <thead>
+                                <tr>
+                                  <th>名称</th>
+                                  <th>分类</th>
+                                  <th>三维物体名称</th>
+                                  <th>路径</th>
+                                  <th>是否使用</th>
+                                  <th>参与进度</th>
+                                  <th>进度物体数量</th>
+                                  <th>其它选项</th>
+                                </tr>
+                              </thead>
+                              <tbody>
+                                  <tr>
+                                    <td><%= @unity3d.name %></td>
+                                    <td><%= @unity3d.category %></td>
+                                     <td><%= @unity3d.objectname %></td>
+                                    <td><%= @unity3d.source %></td>
+                                    <td><%= @unity3d.use %></td>
+                                    <td><%= @unity3d.plan %></td>
+                                    <td><%= @unity3d.num %></td>
+                                    <td><%= @unity3d.option %></td>
+                                  </tr>
+                              </tbody>
+                            </table>
+                            <hr/>
+                             <div class="form-group">
+                            <div class="col-lg-9 col-lg-offset-2">
+                              <%= link_to 'Edit', edit_unity3d_path(@unity3d) %> |
+                              <%= link_to 'Back', unity3ds_path %>
+                          </div>
+                          </div>
+                          <br/>
+                         
+                      <!-- widget-content  end-->
+                      </div>
+                      <div class="widget-foot"></div>
+              </div>
+            <div class="widget">
+                  <!-- Widget title -->
+                   <div class="widget-head">
+                        <div class="pull-left">属性信息</div>
+                        <div class="widget-icons pull-right"></div>  
+                        <div class="clearfix"></div>
+                    </div>
+                    <!-- widget-content -->
+                     <div class="widget-content">
+                           <table class="table table-hover">
+                              <thead>
+                                <tr>
+                                  <th>项目</th>
+                                  <th>内容</th>
+                                  <th>编辑</th>
+                                </tr>
+                              </thead>
+                              <tbody>
+                                 <%@unity3d.infos.each do |info|%>
+                                  <tr>
+                                    <td><%=info.key %></td>
+                                    <td><%=info.value %></td>
+                                    <td><%=link_to '删除',[info.unity3d,info],:confirm=>"确定要删除",:method=>:delete %></td>
+                                  </tr>
+                                 <%end%>
+                              </tbody>
+                              
+                            </table>
+                      <!-- widget-content  end-->
+                      </div>
+              </div>
+          </div>
+          <!--= link_to "添加属性", new_unity3d_info_path, data: { toggle: "modal", target: "#ajax-modal" } %--> 
+         <!-- col-md-12 -->
+         <div class="col-md-5">
+            <div class="widget worange">
+                  <!-- Widget title -->
+                   <div class="widget-head">
+                        <div class="pull-left">添加属性</div>
+                        <div class="clearfix"></div>
+                    </div>
+                    <!-- widget-content -->
+                     <div class="widget-content">
+                      <div class="padd">
+                            <%= form_for [@unity3d, @unity3d.infos.build],:html => {:class=>"form-horizontal"} do |f| %> 
+
+                                <div class="form-group">
+                                  <label class="control-label col-lg-3">项目</label>
+                                  <div class="col-lg-9">
+                                     <%= f.text_field :key,:class=>"form-control"%> 
+                                  </div>
+                                </div>
+                                
+                                
+                                <div class="form-group">
+                                  <label class="col-lg-3 control-label">内容</label>
+                                  <div class="col-lg-9">
+                                    <%= f.text_area :value,:class=>"form-control",:rows=>"3"%> 
+                                  </div>
+                                </div>   
+
+                                <div class="form-group">
+                                     <div class="col-lg-9 col-lg-offset-2">
+                                    <button type="submit" class="btn btn-success">添加</button>
+                                    </div>
+                               </div>
+                              <% end %>
+                      </div>
+                      <!-- widget-content  end-->
+                    </div>
+
+              </div>
+          </div>
+
+  <!-- container ends -->
+  </div>
+</div>
+<!-- Matter ends -->

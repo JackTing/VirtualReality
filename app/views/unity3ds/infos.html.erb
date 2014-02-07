@@ -1,0 +1,17 @@
+ <table class="table table-hover">
+  <thead>
+    <tr>
+      <th>属性名称</th>
+      <th>属性值</th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @infos.each do |info| %>
+      <tr>
+        <td><%= info.key %></td>
+        <td><%= info.value %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>

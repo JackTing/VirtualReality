@@ -1,0 +1,50 @@
+<%= form_for @unity3d ,:html => {:multipart => true} do |f| %>
+  <% if @unity3d.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@unity3d.errors.count, "error") %> prohibited this unity3d from being saved:</h2>
+
+      <ul>
+      <% @unity3d.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :name %><br>
+    <%= f.text_field :name %>
+  </div>
+  <div class="field">
+    <%= f.label :category %><br>
+    <%= f.text_field :category %>
+  </div>
+    <div class="field">
+    <%= f.label :objectname %><br>
+    <%= f.text_field :objectname %>
+  </div>
+  <div class="field">
+    <%= f.label :source %><br>
+    <%= f.text_field :source %><br>
+    <%= file_field("file", "file") %>
+  </div>
+  <div class="field">
+    <%= f.label :use %><br>
+    <%= f.check_box :use %>
+  </div>
+  <div class="field">
+    <%= f.label :plan %><br>
+    <%= f.check_box :plan %>
+  </div>
+   <div class="field">
+    <%= f.label :num %><br>
+    <%= f.text_field :num %>
+  </div>
+  <div class="field">
+    <%= f.label :option %><br>
+    <%= f.text_area :option %>
+  </div>
+  <div class="actions">
+    <%= f.submit :class=>'btn btn-success'%>
+  </div>
+<% end %>

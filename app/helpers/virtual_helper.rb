@@ -1,0 +1,2 @@
+module VirtualHelper
+end

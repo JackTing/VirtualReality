@@ -1,0 +1,73 @@
+
+ <!-- Page heading -->
+  <div class="page-head">
+    <h2 class="pull-left"><i class="icon-file-alt"></i>模型管理</h2>
+    <div class="clearfix"></div>
+  </div>
+  <!-- Page heading ends -->
+  <!-- Matter -->
+    <div class="matter">
+    <div class="container">
+      <div class="col-md-12">
+        <div class="widget">
+              <!-- Widget title -->
+               <div class="widget-head">
+                    <div class="pull-left">模型列表</div>
+                    <div class="widget-icons pull-right"></div>  
+                    <div class="clearfix"></div>
+                </div>
+                <!-- widget-content -->
+                 <div class="widget-content">
+                       <table class="table table-hover">
+                        <thead>
+                          <tr>
+                            <th>名称</th>
+                            <th>分类</th>
+                            <th>三维物体名称</th>
+                            <th>路径</th>
+                            <th>是否使用</th>
+                            <th>参与进度</th>
+                            <th>进度物体数量</th>
+                            <th>选项</th>
+                            <th></th>
+                            <th></th>
+                            <th></th>
+                          </tr>
+                        </thead>
+
+                        <tbody>
+                          <% @unity3ds.each do |unity3d| %>
+                            <tr>
+                              <td><%= unity3d.name %></td>
+                              <td><%= unity3d.category %></td>
+                               <td><%= unity3d.objectname %></td>
+                              <td><%= unity3d.source %></td>
+                              <td><%= unity3d.use %></td>
+                              <td><%= unity3d.plan %></td>
+                              <td><%= unity3d.num %></td>
+                              <td><%= unity3d.option %></td>
+                              <td><%= link_to 'Show', unity3d %></td>
+                              <td><%= link_to 'Edit', edit_unity3d_path(unity3d) %></td>
+                              <td><%= link_to 'Destroy', unity3d, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+                            </tr>
+                          <% end %>
+                        </tbody>
+                      </table>
+
+                       <div class="form-group">
+                         <div class="col-lg-9 col-lg-offset-2">
+                            <%= paginate @unity3ds%>
+                            <%= button_to '新增模型', new_unity3d_path ,:class=>'btn btn-success',:method=>'get' %>
+
+                        </div>
+                    </div>
+                     <br />
+                      <br />
+                       <br />
+              </div>
+          </div>
+      </div>
+    <!-- container ends -->
+  </div>
+</div>
+<!-- Matter ends -->

@@ -1,0 +1,46 @@
+
+
+ <!-- Page heading -->
+  <div class="page-head">
+    <h2 class="pull-left"><i class="icon-file-alt"></i> 新建进度</h2>
+    <div class="clearfix"></div>
+  </div>
+  <!-- Page heading ends -->
+  <!-- Matter -->
+  <div class="matter">
+    <div class="container">
+        <p id="notice"><%= notice %></p>
+        <p>
+          <strong>Wbsno:</strong>
+          <%= @plan.wbsno %>
+        </p>
+
+        <p>
+          <strong>Wbsname:</strong>
+          <%= @plan.wbsname %>
+        </p>
+        <p>
+          <strong>Quantitiesplan:</strong>
+          <%= @plan.quantitiesplan %>
+        </p>
+
+        <p>
+          <strong>Quantitiesfact:</strong>
+          <%= @plan.quantitiesfact %>
+        </p>
+
+        <p>
+          <strong>Wbspctcomp:</strong>
+          <%= @plan.wbspctcomp %>
+        </p>
+
+        <%= link_to 'Edit', edit_plan_path(@plan) %> |
+        <%= link_to 'Back', plans_path %>
+  <!-- container ends -->
+    </div>
+  </div>
+<!-- Matter ends -->
+
+
+
+

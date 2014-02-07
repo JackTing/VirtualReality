@@ -1,0 +1,61 @@
+
+ <!-- Page heading -->
+  <div class="page-head">
+    <h2 class="pull-left"><i class="icon-file-alt"></i>图层管理</h2>
+    <div class="clearfix"></div>
+  </div>
+  <!-- Page heading ends -->
+  <!-- Matter -->
+    <div class="matter">
+    <div class="container">
+      <div class="col-md-12">
+        <div class="widget">
+              <!-- Widget title -->
+               <div class="widget-head">
+                    <div class="pull-left">图层列表</div>
+                    <div class="widget-icons pull-right"></div>  
+                    <div class="clearfix"></div>
+                </div>
+                <!-- widget-content -->
+                 <div class="widget-content">
+
+                    <table class="table table-hover"  id="layers">
+                      <thead>
+                        <tr>
+                          <th>图层名称</th>
+                          <th>三维物体名称</th>
+                          <th></th>
+                          <th></th>
+                          <th></th>
+                        </tr>
+                      </thead>
+
+                      <tbody>
+                        <% @layers.each do |layer| %>
+                          <tr>
+                            <td><%= layer.name %></td>
+                            <td><%= layer.objectname %></td>
+                            <td><%= link_to 'Show', layer %></td>
+                            <td><%= link_to 'Edit', edit_layer_path(layer) %></td>
+                            <td><%= link_to 'Destroy', layer, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+                          </tr>
+                        <% end %>
+                      </tbody>
+                    </table>
+                    <br>
+                       <div class="form-group">
+                         <div class="col-lg-9 col-lg-offset-2">
+                            <%= paginate @layers%>
+                            <%= button_to '添加图层', new_layer_path ,:class=>'btn btn-success',:method=>'get' %>
+                        </div>
+                    </div>
+                     <br />
+                      <br />
+                       <br />
+              </div>
+          </div>
+      </div>
+    <!-- container ends -->
+  </div>
+</div>
+<!-- Matter ends -->

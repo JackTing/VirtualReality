@@ -1,0 +1,30 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Wbsno:</strong>
+  <%= @plan.wbsno %>
+</p>
+
+<p>
+  <strong>Wbsname:</strong>
+  <%= @plan.wbsname %>
+</p>
+
+
+<p>
+  <strong>Quantitiesplan:</strong>
+  <%= @plan.quantitiesplan %>
+</p>
+
+<p>
+  <strong>Quantitiesfact:</strong>
+  <%= @plan.quantitiesfact %>
+</p>
+
+<p>
+  <strong>Wbspctcomp:</strong>
+  <%= @plan.wbspctcomp %>
+</p>
+
+<%= link_to 'Edit', edit_plan_path(@plan) %> |
+<%= link_to 'Back', plans_path %>

@@ -1,0 +1,19 @@
+<% sitemenus=menus_sort(sitemenus) %>
+<% sitemenus.each do |menu|  %>
+	<% if menu.submenus.length>0%>
+		    <li class="dropdown">
+
+		    <a href="#" class="dropdown-toggle" data-toggle="dropdown"><%=menu.name%><b class="caret"></b></a>
+		         <ul class="dropdown-menu">
+  						<%submenus=menus_sort(menu.submenus) %>
+		         	    <% submenus.each do |submenu| %>
+		               		<li><a href="javascript:<%=submenu.action%>"><%=submenu.name%></a></li>
+		                <% end %>
+		         </ul>
+		    </li>
+	<% elsif %>
+	    <% if menu.action %>
+			<li><a href="javascript:<%=menu.action%>" ><%= menu.name %></a></li>
+		<% end %>
+	<% end %>
+<% end %>

@@ -1,0 +1,4 @@
+class TexturesController < ApplicationController
+
+	
+end

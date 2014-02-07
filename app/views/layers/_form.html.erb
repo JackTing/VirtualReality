@@ -1,0 +1,24 @@
+<%= form_for(@layer ,:remote => true) do |f| %>
+  <% if @layer.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@layer.errors.count, "error") %> prohibited this layer from being saved:</h2>
+
+      <ul>
+      <% @layer.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+  <div class="field">
+    <%= f.label :name %><br>
+    <%= f.text_field :name %>
+  </div>
+  <div class="field">
+    <%= f.label :objectname %><br>
+    <%= f.text_area :objectname %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

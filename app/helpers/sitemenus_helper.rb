@@ -1,0 +1,2 @@
+module SitemenusHelper
+end

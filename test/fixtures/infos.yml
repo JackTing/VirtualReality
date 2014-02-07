@@ -1,0 +1,11 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  key: MyString
+  value: MyText
+  unity3d_id: 
+
+two:
+  key: MyString
+  value: MyText
+  unity3d_id: 

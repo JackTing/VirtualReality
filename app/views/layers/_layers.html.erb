@@ -1,0 +1,9 @@
+<% layers.each do |layer| %>
+   <div class="input-group">
+    <span class="input-group-addon">
+    <input type="checkbox" checked=true onclick="ActiveLayer('<%=layer.objectname%>',this.checked)">
+    </span>
+    <input type="text" class="form-control" value='<%= layer.name %>'>  
+    </div><!-- /input-group --><br>
+<% end %>
+

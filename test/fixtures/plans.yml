@@ -1,0 +1,15 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  wbsno: MyString
+  wbsname: MyString
+  quantitiesplan: 1
+  quantitiesfact: 1
+  wbspctcomp: 1
+
+two:
+  wbsno: MyString
+  wbsname: MyString
+  quantitiesplan: 1
+  quantitiesfact: 1
+  wbspctcomp: 1
