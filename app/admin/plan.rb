@@ -25,6 +25,7 @@ ActiveAdmin.register Plan do
   form do |f|
     f.inputs "编辑计划信息" do
       f.input :wbsno,:label=>"序号"
+      f.input :wbsname,:label=>"工程名称"
       f.input :quantitiesplan,:label=>"计划工作量"
       f.input :quantitiesfact,:label=>"完成工作量"
       f.input :wbspctcomp,:label=>"完成百分比"
