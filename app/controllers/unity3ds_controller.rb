@@ -10,6 +10,9 @@
   def all
     @unity3ds = Unity3d.all
   end
+  def all_names
+    @unity3ds = Unity3d.all
+  end
   def infos
     @unity3d=Unity3d.find_by_objectname(params[:objectname])
     if @unity3d!=nil

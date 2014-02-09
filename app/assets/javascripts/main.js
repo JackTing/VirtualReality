@@ -95,6 +95,11 @@ function ActiveLayer(objectname,show_type)
 	UnityObject.getUnity().SendMessage("Models","ActiveLayer",objectname+"!!"+type);
 
 }
+function ActiveLight(type)
+{   
+	UnityObject.getUnity().SendMessage("Lights","ActiveLight",type);
+
+}
 function ShowInfos(objectname)
 {
 		alert(objectname);

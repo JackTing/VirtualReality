@@ -27,6 +27,7 @@ VirtualReality::Application.routes.draw do
   get "get_info/:objectname" => "unity3ds#infos"
   #custom all 
   get "get_all_unity3ds" => "unity3ds#all"
+  get "get_all_names" => "unity3ds#all_names"
   # Example of regular route:
    #  get 'plans/:wbsno' => 'plans#show'
 
