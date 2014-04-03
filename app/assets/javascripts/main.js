@@ -1,11 +1,12 @@
 //Unity3d Js
+
 var config = {
 	height:window.innerHeight-120,
 	params: {                                                 // 文本颜色
 				logoimage: "/Data/images/CustomLogo.png",                             //  logo
 				progressbarimage: "/Data/images/CustomProgressBar.png",              // 加载进度条
 				progressframeimage: "/Data/images/CustomProgressFrame.png",
-				disableContextMenu: false
+				disableContextMenu: true
 			 }
 	
 };
@@ -103,8 +104,12 @@ function ActiveLight(type)
 function ShowInfos(objectname)
 {
 		alert(objectname);
-
 }
+function ActiveMeasurement(type)
+{
+	UnityObject.getUnity().SendMessage("Models","ActiveMeasurement",type);
+}
+
 function ShowPipelines()
 {
 	UnityObject.getUnity().SendMessage("Models","StartShowPipelines","");

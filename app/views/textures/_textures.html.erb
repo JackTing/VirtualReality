@@ -1,0 +1,9 @@
+
+
+<% @textures.each do |texture| %>
+     <%= image_tag texture.image, height: '32', width: '32' alt: texture.name %>
+ <% end %>
+ <%= render @textures %>
+<div id="paginator">
+  <%= paginate @textures, :remote => true %>
+</div>

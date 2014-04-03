@@ -4,9 +4,8 @@ VirtualReality::Application.routes.draw do
   ActiveAdmin.routes(self) 
   
   devise_for :users, ActiveAdmin::Devise.config
-  
+
   resources :layers
-  #resources :virtuals
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
@@ -25,6 +24,8 @@ VirtualReality::Application.routes.draw do
   get "get_all_plans" => "plans#all"
   get "get_plan/:wbsno" => "plans#plan"
   get "get_info/:objectname" => "unity3ds#infos"
+  get "get_layers"=>"layers#all"
+  get "get_all_model_categories/:page" =>"model_categories#find_by_page"
   #custom all 
   get "get_all_unity3ds" => "unity3ds#all"
   get "get_all_names" => "unity3ds#all_names"

@@ -1,4 +1,3 @@
-
 json.categories do | i |
 	i.array!( @texturecategories ) do | j, category |
 	  j.name category['name']

@@ -36,6 +36,8 @@ class Ability
       can :manage, :all
     elsif user.has_role? :render
       can :read, :all
+    elsif  user.has_role? :designer
+      can :read, :all
     end
   end
   protected

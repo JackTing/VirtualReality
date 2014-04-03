@@ -23,7 +23,6 @@
                       <thead>
                         <tr>
                           <th>图层名称</th>
-                          <th>三维物体名称</th>
                           <th></th>
                           <th></th>
                           <th></th>
@@ -34,7 +33,6 @@
                         <% @layers.each do |layer| %>
                           <tr>
                             <td><%= layer.name %></td>
-                            <td><%= layer.objectname %></td>
                             <td><%= link_to 'Show', layer %></td>
                             <td><%= link_to 'Edit', edit_layer_path(layer) %></td>
                             <td><%= link_to 'Destroy', layer, method: :delete, data: { confirm: 'Are you sure?' } %></td>

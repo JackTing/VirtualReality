@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140206033403) do
+ActiveRecord::Schema.define(version: 20140216122831) do
 
   create_table "active_admin_comments", force: true do |t|
     t.string   "namespace"
@@ -38,9 +38,15 @@ ActiveRecord::Schema.define(version: 20140206033403) do
 
   add_index "infos", ["unity3d_id"], name: "index_infos_on_unity3d_id"
 
+  create_table "layer_unity3ds", force: true do |t|
+    t.integer  "layer_id"
+    t.integer  "unity3d_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
   create_table "layers", force: true do |t|
     t.string   "name"
-    t.text     "objectname"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
@@ -63,6 +69,7 @@ ActiveRecord::Schema.define(version: 20140206033403) do
     t.string   "source"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.string   "image"
   end
 
   create_table "plan_unity3ds", force: true do |t|

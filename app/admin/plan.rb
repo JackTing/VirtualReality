@@ -3,7 +3,7 @@
 ActiveAdmin.register Plan do
   menu :priority =>3, :label =>"计划维护",:parent => "计划管理"
   #
-  permit_params :wbsname,:quantitiesplan,:quantitiesfact,:wbspctcomp
+  permit_params :wbsno,:wbsname,:quantitiesplan,:quantitiesfact,:wbspctcomp
   #sidebar
   #sidebar "帮助",:only => :index do
    # "如果你对网站后台管理有问题,请联系powermedia@qq.com"

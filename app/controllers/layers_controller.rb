@@ -1,7 +1,7 @@
 class LayersController < ApplicationController
   before_action :set_layer, only: [:show, :edit, :update, :destroy]
-  before_filter :authenticate_user!
-  # GET /layers
+  before_filter :authenticate_user!,:only =>[:show,:index,:edit,:new]
+  # GET /layers#all
   # GET /layers.json
   def index
     @layers = Layer.order(:name).page params[:page]
@@ -10,7 +10,9 @@ class LayersController < ApplicationController
   # GET /layers/1.json
   def show
   end
-  
+  def all
+    @layers=Layer.all
+  end
   # GET /layers/new
   def new
     @layer = Layer.new
@@ -70,6 +72,6 @@ class LayersController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def layer_params
-      params.require(:layer).permit(:name, :objectname)
+      params.require(:layer).permit(:name)
     end
 end

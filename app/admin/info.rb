@@ -2,7 +2,7 @@
 ActiveAdmin.register Info do
    belongs_to :unity3d
    #
-   permit_params :key, :valu, :unity3d_id
+   permit_params :key, :value, :unity3d_id
    #list
    index :title => '属性列表'  do
     selectable_column

@@ -1,0 +1,2 @@
+$('#textures').html('<%= escape_javascript render(@textures) %>');
+$('#paginator').html('<%= escape_javascript(paginate(@textures, :remote => true).to_s) %>');
