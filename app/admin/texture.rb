@@ -1,7 +1,7 @@
 #encoding:utf-8
 ActiveAdmin.register Texture do
-  belongs_to :texturecategory
-  permit_params :name, :image, :texturecategory_id
+  belongs_to :texture_category
+  permit_params :name, :image, :texture_category_id
   
   index  do |texture|
    selectable_column

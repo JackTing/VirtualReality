@@ -65,8 +65,8 @@
              <a class="panel-title" data-toggle="collapse" data-parent="#panel-892768" href="#panel-element-186029"> 模型管理 </a>
           </div>
           <div id="panel-element-186029" class="panel-collapse in">
-            <div class="panel-body">
-                 <%= render :partial => "layers/layers",:object=>Layer.all%> 
+            <div class="panel-body" id="modelcategory">
+              <%= render @model_category%> 
             </div>
           </div>
         </div>
@@ -75,8 +75,8 @@
              <a class="panel-title collapsed" data-toggle="collapse" data-parent="#panel-892768" href="#panel-element-890852">材质管理</a>
           </div>
           <div id="panel-element-890852" class="panel-collapse collapse">
-            <div class="panel-body">
-               <%= render :partial => "textures/textures",:object=>Texture.order(:name).page 1 %> 
+            <div class="panel-body" id="texturecategory">
+                <%= render @texture_category%> 
             </div>
           </div>
         </div>

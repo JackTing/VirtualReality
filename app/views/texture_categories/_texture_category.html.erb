@@ -1,0 +1,20 @@
+
+<div class="btn-group">
+  <button class="btn btn-success dropdown-toggle" type="button" data-toggle="dropdown">
+     请点击选择材质分类 <span class="caret"></span>
+  </button>
+  <ul class="dropdown-menu">
+  	   <% @texture_categories.each do |texture_category| %>
+      	  <li>
+      	  	<%= link_to texture_category.name,texture_category,:remote => true, "data-type" => "script" %>
+      	  </li>
+       <% end %>
+  </ul>
+</div>
+<p></p>
+<%=render(@texture_category.textures) %>
+<hr>
+<ul class="pager">
+  <li><a href="#">上页</a></li>
+  <li><a href="#">下页</a></li>
+</ul>

@@ -19,6 +19,24 @@ class ApplicationController < ActionController::Base
        redirect_to root_path
      end
   end
-
+  private
+  def current_texture_category
+      @texture_categories=TextureCategory.all
+      @texture_categories[0]
+    rescue ActiveRecord::RecordNotFound
+      texture_category = TextureCategory.new
+      texture_category.name="石材"
+      texture_category.save
+      texture_category
+  end
+  def current_model_category
+    @model_categories=ModelCategory.all
+    @model_categories[0]
+    rescue ActiveRecord::RecordNotFound
+      model_category = ModelCategory.new
+      model_category.name="办公楼"
+      model_category.save
+      model_category
+  end
 
 end

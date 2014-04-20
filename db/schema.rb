@@ -119,7 +119,7 @@ ActiveRecord::Schema.define(version: 20140216122831) do
 
   add_index "submenus", ["sitemenu_id"], name: "index_submenus_on_sitemenu_id"
 
-  create_table "texturecategories", force: true do |t|
+  create_table "texture_categories", force: true do |t|
     t.string   "name"
     t.datetime "created_at"
     t.datetime "updated_at"
@@ -133,7 +133,7 @@ ActiveRecord::Schema.define(version: 20140216122831) do
     t.datetime "updated_at"
   end
 
-  add_index "textures", ["texturecategory_id"], name: "index_textures_on_texturecategory_id"
+  add_index "textures", ["texture_category_id"], name: "index_textures_on_texture_category_id"
 
   create_table "unity3ds", force: true do |t|
     t.string   "name"

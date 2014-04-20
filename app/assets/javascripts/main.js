@@ -105,6 +105,10 @@ function ShowInfos(objectname)
 {
 		alert(objectname);
 }
+function ActiveTexture(path)
+{
+	UnityObject.getUnity().SendMessage("Models","SetTexture",path);
+}
 function ActiveMeasurement(type)
 {
 	UnityObject.getUnity().SendMessage("Models","ActiveMeasurement",type);

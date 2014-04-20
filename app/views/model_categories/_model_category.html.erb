@@ -1,0 +1,21 @@
+<div class="btn-group">
+  <button class="btn btn-success dropdown-toggle" type="button" data-toggle="dropdown">
+    请点击选择模型分类 <span class="caret"></span>
+  </button>
+  <ul class="dropdown-menu">
+       <% if @model_categories %>
+    	   <% @model_categories.each do |model_category| %>
+        	  <li>
+        	  	<%= link_to model_category.name,model_category,:remote => true, "data-type" => "script" %>
+        	  </li>
+         <% end %>
+       <% end %>
+  </ul>
+</div>
+<p></p>
+<%=render(@model_category.model_libs) %>
+<hr>
+<ul class="pager">
+  <li><a href="#">上页</a></li>
+  <li><a href="#">下页</a></li>
+</ul>
