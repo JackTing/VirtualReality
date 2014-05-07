@@ -10,6 +10,8 @@ VirtualReality::Application.routes.draw do
   resources :model_categories
   resources :model_libs
   resources :texture_categories
+  resources :sky_categories
+  resources :skies
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
@@ -29,6 +31,7 @@ VirtualReality::Application.routes.draw do
   get "get_info/:objectname" => "unity3ds#infos"
   get "get_layers"=>"layers#all"
   #custom all 
+  get "get_unity3ds/:number"=>"projects#unity3ds"
   get "get_all_unity3ds" => "unity3ds#all"
   get "get_all_names" => "unity3ds#all_names"
   # Example of regular route:

@@ -62,11 +62,11 @@
       <div class="panel-group" id="panel-892768">
         <div class="panel panel-default">
           <div class="panel-heading">
-             <a class="panel-title" data-toggle="collapse" data-parent="#panel-892768" href="#panel-element-186029"> 模型管理 </a>
+             <a class="panel-title collapsed" data-toggle="collapse" data-parent="#panel-892768" href="#panel-element-186029"> 模型管理 </a>
           </div>
-          <div id="panel-element-186029" class="panel-collapse in">
+          <div id="panel-element-186029" class="panel-collapse collapse">
             <div class="panel-body" id="modelcategory">
-              <%= render @model_category%> 
+             <%= render @model_category%> 
             </div>
           </div>
         </div>
@@ -77,6 +77,26 @@
           <div id="panel-element-890852" class="panel-collapse collapse">
             <div class="panel-body" id="texturecategory">
                 <%= render @texture_category%> 
+            </div>
+          </div>
+        </div>
+        <div class="panel panel-default">
+          <div class="panel-heading">
+             <a class="panel-title collapsed" data-toggle="collapse" data-parent="#panel-892768" href="#panel-element-186023"> 灯光及雾效设置 </a>
+          </div>
+          <div id="panel-element-186023" class="panel-collapse collapse">
+            <div class="panel-body" >
+                 <%= render :partial => "light/light" %>  
+            </div>
+          </div>
+        </div>
+        <div class="panel panel-default">
+          <div class="panel-heading">
+             <a class="panel-title collapsed" data-toggle="collapse" data-parent="#panel-892768" href="#panel-element-186024"> 环境背景设置 </a>
+          </div>
+          <div id="panel-element-186024" class="panel-collapse collapse">
+            <div class="panel-body" id="skycategory">
+                  <%= render @sky_category%> 
             </div>
           </div>
         </div>

@@ -107,7 +107,15 @@ function ShowInfos(objectname)
 }
 function ActiveTexture(path)
 {
-	UnityObject.getUnity().SendMessage("Models","SetTexture",path);
+	UnityObject.getUnity().SendMessage("Models","SetTexturePath",path);
+}
+function ActiveSky(path)
+{
+	UnityObject.getUnity().SendMessage("Models","ChangeSky",path);
+}
+function ActiveModel(path)
+{
+	UnityObject.getUnity().SendMessage("Models","SetModelPath",path);
 }
 function ActiveMeasurement(type)
 {

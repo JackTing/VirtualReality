@@ -4,6 +4,7 @@ class VirtualController < ApplicationController
 	def show
 		@texture_category = current_texture_category
 		@model_category=current_model_category
+		@sky_category=current_sky_category
 		render :action=>'show'
 	end
     private

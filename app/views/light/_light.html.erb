@@ -1,0 +1,68 @@
+
+<div class="form-group">
+    <label for="small" class="control-label">灯光角度设置</label>
+    <input id="lightAngleY" data-slider-id='lightAngleYSlider' type="text" data-slider-min="-180" data-slider-max="180" data-slider-step="150" data-slider-value="90" style="width:100%"/>
+    <input id="lightAngleX" data-slider-id='lightAngleZSlider' type="text" data-slider-min="-180" data-slider-max="180" data-slider-step="10" data-slider-value="45" style="width:100%"/>
+</div>
+<div class="form-group">
+    <label for="small" class="control-label">灯光强度设置</label>
+    <input id="lightIntensity" data-slider-id='ex1Slider' type="text" data-slider-min="0.5" data-slider-max="2" data-slider-step="0.1" data-slider-value="0.7" style="width:100%"/>
+</div>
+
+
+<div class="form-group">
+    <label for="small" class="control-label">灯光颜色设置</label>
+    <input type="text" class="form-control" id="light" value="rgb(251, 167, 219)">
+</div>
+
+<hr>
+<div class="form-group">
+    <label for="small" class="control-label">雾效强度设置</label>
+    <input id="fogDensity" data-slider-id='ex1Slider' type="text" data-slider-min="0.1" data-slider-max="1" data-slider-step="0.1" data-slider-value="0.7" style="width:100%"/>
+</div>
+
+<div class="form-group">
+    <label for="small" class="control-label">雾效颜色色设置</label>
+    <input type="text" class="form-control" id="fog" value="rgb(251, 167, 219)">
+</div>
+<script>
+	$("input#light").ColorPickerSliders({
+	    size: 'sm',
+	    placement: 'bottom',
+	    swatches: false,
+	    order: {
+	        hsl: 1
+	    },
+	    onchange: function(container, color) {   
+              UnityObject.getUnity().SendMessage("Lights","ActiveColor",color.tiny.toRgbString());
+         }
+	});
+
+	$("#lightAngleY").slider();
+ 	$("#lightAngleY").on('slide', function(slideEvt) {
+ 	 	 UnityObject.getUnity().SendMessage("Lights","ActivelightAngleY",slideEvt.value.toString());
+	 });
+ 	$("#lightAngleX").slider();
+ 	$("#lightAngleX").on('slide', function(slideEvt) {
+ 	 	 UnityObject.getUnity().SendMessage("Lights","ActivelightAngleX",slideEvt.value.toString());
+	 });
+	$("#lightIntensity").slider();
+	 $("#lightIntensity").on('slide', function(slideEvt) {
+ 	 		UnityObject.getUnity().SendMessage("Lights","ActivelightIntensity",slideEvt.value.toString());
+	 });
+	$("#fogDensity").slider();
+	$("#fogDensity").on('slide', function(slideEvt) {
+ 	 		UnityObject.getUnity().SendMessage("Lights","ActiveFogDensity",slideEvt.value.toString());
+	 });
+	$("input#fog").ColorPickerSliders({
+	    size: 'sm',
+	    placement: 'bottom',
+	    swatches: false,
+	    order: {
+	        hsl: 1
+	    },
+	     onchange: function(container, color) {
+             UnityObject.getUnity().SendMessage("Lights","ActiveFogColor",color.tiny.toRgbString());              
+         }
+	});
+</script>

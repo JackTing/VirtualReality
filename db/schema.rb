@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140216122831) do
+ActiveRecord::Schema.define(version: 20140501070440) do
 
   create_table "active_admin_comments", force: true do |t|
     t.string   "namespace"
@@ -34,6 +34,7 @@ ActiveRecord::Schema.define(version: 20140216122831) do
     t.integer  "unity3d_id"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.string   "image"
   end
 
   add_index "infos", ["unity3d_id"], name: "index_infos_on_unity3d_id"
@@ -47,6 +48,7 @@ ActiveRecord::Schema.define(version: 20140216122831) do
 
   create_table "layers", force: true do |t|
     t.string   "name"
+    t.text     "objectname"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
@@ -89,6 +91,21 @@ ActiveRecord::Schema.define(version: 20140216122831) do
     t.datetime "updated_at"
   end
 
+  create_table "project_unity3ds", force: true do |t|
+    t.integer  "project_id"
+    t.integer  "unity3d_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "projects", force: true do |t|
+    t.string   "name"
+    t.string   "number"
+    t.text     "info"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
   create_table "roles", force: true do |t|
     t.string   "name"
     t.integer  "resource_id"
@@ -104,6 +121,27 @@ ActiveRecord::Schema.define(version: 20140216122831) do
     t.string   "name"
     t.integer  "custom_sort"
     t.text     "action"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "skies", force: true do |t|
+    t.string   "name"
+    t.string   "source"
+    t.string   "image"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "sky_categories", force: true do |t|
+    t.string   "name"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "sky_category_skies", force: true do |t|
+    t.integer  "sky_id"
+    t.integer  "sky_category_id"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
@@ -125,6 +163,13 @@ ActiveRecord::Schema.define(version: 20140216122831) do
     t.datetime "updated_at"
   end
 
+  create_table "texture_category_textures", force: true do |t|
+    t.integer  "texture_category_id"
+    t.integer  "texture_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
   create_table "textures", force: true do |t|
     t.string   "name"
     t.string   "image"
@@ -133,7 +178,7 @@ ActiveRecord::Schema.define(version: 20140216122831) do
     t.datetime "updated_at"
   end
 
-  add_index "textures", ["texture_category_id"], name: "index_textures_on_texture_category_id"
+  add_index "textures", ["texturecategory_id"], name: "index_textures_on_texturecategory_id"
 
   create_table "unity3ds", force: true do |t|
     t.string   "name"

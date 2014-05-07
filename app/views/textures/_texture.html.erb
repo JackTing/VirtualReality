@@ -1,1 +1,6 @@
-<%= image_tag texture.image, height:'54', width:'54', alt: texture.name,:class=>"img-thumbnail",:onclick=>"ActiveTexture('#{texture.image}')"%>
+
+  <tr>
+      <td><%=image_tag texture.image, height:'54', width:'54',:class=>"img-thumbnail",:onclick=>"ActiveTexture('#{texture.image}')"%></td>
+      <td><%=texture.name %></td>
+  </tr>
+

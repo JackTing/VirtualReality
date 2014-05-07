@@ -2,12 +2,13 @@
 ActiveAdmin.register Info do
    belongs_to :unity3d
    #
-   permit_params :key, :value, :unity3d_id
+   permit_params :key, :value,:image,:unity3d_id
    #list
    index :title => '属性列表'  do
     selectable_column
     column "属性名称",:key
     column "属性值",:value
+    column "属性图片",:image
     default_actions
    end
    #
@@ -17,6 +18,7 @@ ActiveAdmin.register Info do
     f.inputs  do
       f.input :key,:label=>"属性名称"
       f.input :value,:label=>"属性值"
+      f.input :image,:label => '图片',as: :file
     end
     f.actions
    end

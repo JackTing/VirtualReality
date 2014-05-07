@@ -1,21 +1,83 @@
+  <script id="js_model">$(function(){
+  var pagerOptions = {
+
+    container: $(".model_libs_pager"),
+    ajaxUrl: null,
+    customAjaxUrl: function(table, url) { return url; },
+    ajaxProcessing: function(ajax){
+      if (ajax && ajax.hasOwnProperty('data')) {
+        // return [ "data", "total_rows" ];
+        return [ ajax.total_rows, ajax.data ];
+      }
+    },
+    output: '{startRow} to {endRow} ({totalRows})',
+    updateArrows: true,
+
+    page: 0,
+    size: 2,
+    savePages : true,
+    fixedHeight: true,
+    removeRows: false,
+
+    // css class names of pager arrows
+    cssNext: '.mnext', // next page arrow
+    cssPrev: '.mprev', // previous page arrow
+    cssFirst: '.mfirst', // go to first page arrow
+    cssLast: '.mlast', // go to last page arrow
+    cssGoto: '.mgotoPage', // select dropdown to allow choosing a page
+
+  };
+
+  $("#model_libs_table")
+    // Initialize tablesorter
+    // ***********************
+    .tablesorter({
+      widthFixed: true,
+    })
+
+    // bind to pager events
+    // *********************
+    .bind('pagerChange pagerComplete pagerInitialized pageMoved', function(e, c){
+      var msg = '"</span> event triggered, ' + (e.type === 'pagerChange' ? 'going to' : 'now on') +
+        ' page <span class="typ">' + (c.page + 1) + '/' + c.totalPages + '</span>';
+      $('#display')
+        .append('<li><span class="str">"' + e.type + msg + '</li>')
+        .find('li:first').remove();
+    })
+
+    // initialize the pager plugin
+    // ****************************
+    .tablesorterPager(pagerOptions);
+});</script>
+
+
 <div class="btn-group">
   <button class="btn btn-success dropdown-toggle" type="button" data-toggle="dropdown">
     请点击选择模型分类 <span class="caret"></span>
   </button>
   <ul class="dropdown-menu">
-       <% if @model_categories %>
     	   <% @model_categories.each do |model_category| %>
         	  <li>
         	  	<%= link_to model_category.name,model_category,:remote => true, "data-type" => "script" %>
         	  </li>
          <% end %>
-       <% end %>
   </ul>
 </div>
 <p></p>
-<%=render(@model_category.model_libs) %>
-<hr>
-<ul class="pager">
-  <li><a href="#">上页</a></li>
-  <li><a href="#">下页</a></li>
-</ul>
+<table class="table table-hover" id="model_libs_table">
+  <thead>
+    <tr>
+      <th>缩略图</th>
+      <th>名称</th>
+    </tr>
+  </thead>
+  <tbody>
+       <%=render(@model_category.model_libs) %>
+  </tbody>
+</table>
+<div class="model_libs_pager">
+  <img src="<%= asset_path 'first.png' %>" class="mfirst" alt="First" />
+  <img src="<%= asset_path 'prev.png' %>" class="mprev" alt="Prev" />
+  <img src="<%= asset_path 'next.png' %>" class="mnext" alt="Next" />
+  <img src="<%= asset_path 'last.png' %>" class="mlast" alt="Last" />
+</div>

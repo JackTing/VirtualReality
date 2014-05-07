@@ -1,4 +1,54 @@
+  <script id="js">$(function(){
+  var pagerOptions = {
 
+    container: $(".textures_pager"),
+    ajaxUrl: null,
+    customAjaxUrl: function(table, url) { return url; },
+    ajaxProcessing: function(ajax){
+      if (ajax && ajax.hasOwnProperty('data')) {
+        // return [ "data", "total_rows" ];
+        return [ ajax.total_rows, ajax.data ];
+      }
+    },
+    output: '{startRow} to {endRow} ({totalRows})',
+    updateArrows: true,
+
+    page: 0,
+    size: 2,
+    savePages : true,
+    fixedHeight: true,
+    removeRows: false,
+
+    // css class names of pager arrows
+    cssNext: '.tnext', // next page arrow
+    cssPrev: '.tprev', // previous page arrow
+    cssFirst: '.tfirst', // go to first page arrow
+    cssLast: '.tlast', // go to last page arrow
+    cssGoto: '.tgotoPage', // select dropdown to allow choosing a page
+
+  };
+
+  $("#textures_table")
+    // Initialize tablesorter
+    // ***********************
+    .tablesorter({
+      widthFixed: true,
+    })
+
+    // bind to pager events
+    // *********************
+    .bind('pagerChange pagerComplete pagerInitialized pageMoved', function(e, c){
+      var msg = '"</span> event triggered, ' + (e.type === 'pagerChange' ? 'going to' : 'now on') +
+        ' page <span class="typ">' + (c.page + 1) + '/' + c.totalPages + '</span>';
+      $('#display')
+        .append('<li><span class="str">"' + e.type + msg + '</li>')
+        .find('li:first').remove();
+    })
+
+    // initialize the pager plugin
+    // ****************************
+    .tablesorterPager(pagerOptions);
+});</script>
 <div class="btn-group">
   <button class="btn btn-success dropdown-toggle" type="button" data-toggle="dropdown">
      请点击选择材质分类 <span class="caret"></span>
@@ -12,9 +62,21 @@
   </ul>
 </div>
 <p></p>
-<%=render(@texture_category.textures) %>
-<hr>
-<ul class="pager">
-  <li><a href="#">上页</a></li>
-  <li><a href="#">下页</a></li>
-</ul>
+<table class="table table-hover" id="textures_table">
+  <thead>
+    <tr>
+      <th>缩略图</th>
+      <th>名称</th>
+    </tr>
+  </thead>
+  <tbody>
+    <%=render(@texture_category.textures) %>
+  </tbody>
+</table>
+<div class="textures_pager">
+  <img src="<%= asset_path 'first.png' %>" class="tfirst" alt="First" />
+  <img src="<%= asset_path 'prev.png' %>" class="tprev" alt="Prev" />
+  <img src="<%= asset_path 'next.png' %>" class="tnext" alt="Next" />
+  <img src="<%= asset_path 'last.png' %>" class="tlast" alt="Last" />
+</div>
+  

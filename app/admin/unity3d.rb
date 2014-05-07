@@ -35,6 +35,7 @@ ActiveAdmin.register Unity3d do
       f.input :option,:label=>"其它选项信息"
       f.input :plan,:label=>"是否参与进度"
       f.input :num,:label=>"子物体数量"
+      f.input :projects,:label=>"所属项目", as: :select,:input_html => { :size =>15,:style=>'width:250px',:multiple => false},  collection: Project.all.map{|u| ["#{u.name}", u.id]}
     end
     f.actions
   end
@@ -44,6 +45,22 @@ ActiveAdmin.register Unity3d do
     def edit
       @page_title = "编辑"
       edit!
+    end
+    def create
+      @unity3d = Unity3d.new(permitted_params[:unity3d])
+      add_project(@unity3d)
+      create!
+    end
+
+    def update
+      add_project(resource)
+      update!
+    end
+
+    private
+    def add_project(resource)
+      resource.projects = []
+      params[:unity3d][:project_ids].each { |r| resource.projects.push(Project.find(r)) unless r.blank? }
     end
   end
 

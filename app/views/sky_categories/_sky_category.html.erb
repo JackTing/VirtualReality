@@ -1,0 +1,82 @@
+  <script id="js">$(function(){
+  var pagerOptions = {
+
+    container: $(".skies_pager"),
+    ajaxUrl: null,
+    customAjaxUrl: function(table, url) { return url; },
+    ajaxProcessing: function(ajax){
+      if (ajax && ajax.hasOwnProperty('data')) {
+        // return [ "data", "total_rows" ];
+        return [ ajax.total_rows, ajax.data ];
+      }
+    },
+    output: '{startRow} to {endRow} ({totalRows})',
+    updateArrows: true,
+
+    page: 0,
+    size: 2,
+    savePages : true,
+    fixedHeight: true,
+    removeRows: false,
+
+    // css class names of pager arrows
+    cssNext: '.tnext', // next page arrow
+    cssPrev: '.tprev', // previous page arrow
+    cssFirst: '.tfirst', // go to first page arrow
+    cssLast: '.tlast', // go to last page arrow
+    cssGoto: '.tgotoPage', // select dropdown to allow choosing a page
+
+  };
+
+  $("#skies_table")
+    // Initialize tablesorter
+    // ***********************
+    .tablesorter({
+      widthFixed: true,
+    })
+
+    // bind to pager events
+    // *********************
+    .bind('pagerChange pagerComplete pagerInitialized pageMoved', function(e, c){
+      var msg = '"</span> event triggered, ' + (e.type === 'pagerChange' ? 'going to' : 'now on') +
+        ' page <span class="typ">' + (c.page + 1) + '/' + c.totalPages + '</span>';
+      $('#display')
+        .append('<li><span class="str">"' + e.type + msg + '</li>')
+        .find('li:first').remove();
+    })
+
+    // initialize the pager plugin
+    // ****************************
+    .tablesorterPager(pagerOptions);
+});</script>
+<div class="btn-group">
+  <button class="btn btn-success dropdown-toggle" type="button" data-toggle="dropdown">
+     请点击选择天空分类 <span class="caret"></span>
+  </button>
+  <ul class="dropdown-menu">
+  	   <% @sky_categories.each do |sky_category| %>
+      	  <li>
+      	  	<%= link_to sky_category.name,sky_category,:remote => true, "data-type" => "script" %>
+      	  </li>
+       <% end %>
+  </ul>
+</div>
+<p></p>
+<table class="table table-hover" id="skies_table">
+  <thead>
+    <tr>
+      <th>缩略图</th>
+      <th>名称</th>
+    </tr>
+  </thead>
+  <tbody>
+    <%=render(@sky_category.skies)%>
+  </tbody>
+</table>
+<div class="skies_pager">
+  <img src="<%= asset_path 'first.png' %>" class="tfirst" alt="First" />
+  <img src="<%= asset_path 'prev.png' %>" class="tprev" alt="Prev" />
+  <img src="<%= asset_path 'next.png' %>" class="tnext" alt="Next" />
+  <img src="<%= asset_path 'last.png' %>" class="tlast" alt="Last" />
+</div>
+  

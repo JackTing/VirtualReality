@@ -1,6 +1,6 @@
 #encoding:utf-8
 ActiveAdmin.register Role do
-  permit_params :name, :resource_type, :user_role_id
+  permit_params :name, :resource_type,:resource_id,:user_role_id
   #
   config.comments = false
   #menu
@@ -9,7 +9,6 @@ ActiveAdmin.register Role do
   index :title => '角色列表'  do
     selectable_column
     column "角色",:name
-    column "资源类型",:resource_type
     default_actions
   end
   #filter
@@ -18,7 +17,6 @@ ActiveAdmin.register Role do
   form do |f|
     f.inputs "角色信息" do
       f.input :name,:label=>"角色"
-      f.input :resource_type,:label=>"资源类型"
     end
     f.actions
   end

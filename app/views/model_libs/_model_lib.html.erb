@@ -1,1 +1,5 @@
-<%= image_tag model_lib.image, height:'54', width:'54', alt: model_lib.name,:class=>"img-thumbnail",:onclick=>"ActiveTexture('#{model_lib.image}')"%>
+
+  <tr>
+      <td><%=image_tag model_lib.image, height:'54', width:'54',:class=>"img-thumbnail",:onclick=>"ActiveModel('#{model_lib.source}')"%></td>
+      <td><%=model_lib.name %></td>
+  </tr>

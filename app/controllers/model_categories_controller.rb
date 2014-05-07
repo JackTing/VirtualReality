@@ -9,7 +9,7 @@ class ModelCategoriesController < ApplicationController
     def show
 	  begin
 		 @model_category = ModelCategory.find(params[:id])
-		 @model_category = ModelCategory.all
+		 @model_categories = ModelCategory.all
 	  rescue ActiveRecord::RecordNotFound
 		 logger.error "Can't find modelcategory" #{params[:id]}
 	  else

@@ -22,7 +22,14 @@ class ApplicationController < ActionController::Base
   private
   def current_texture_category
       @texture_categories=TextureCategory.all
-      @texture_categories[0]
+      if @texture_categories.length>0
+         @texture_categories[0]
+      else
+         texture_category = TextureCategory.new
+         texture_category.name="石材"
+         texture_category.save
+         texture_category
+      end
     rescue ActiveRecord::RecordNotFound
       texture_category = TextureCategory.new
       texture_category.name="石材"
@@ -31,12 +38,35 @@ class ApplicationController < ActionController::Base
   end
   def current_model_category
     @model_categories=ModelCategory.all
-    @model_categories[0]
+    if @model_categories.length>0
+      @model_categories[0]
+    else
+      model_category = ModelCategory.new
+      model_category.name="办公楼"
+      model_category.save
+      model_category
+    end
     rescue ActiveRecord::RecordNotFound
       model_category = ModelCategory.new
       model_category.name="办公楼"
       model_category.save
       model_category
+  end
+  def current_sky_category
+    @sky_categories=SkyCategory.all
+    if @sky_categories.length>0
+      @sky_categories[0]
+    else
+      sky_category = SkyCategory.new
+      sky_category.name="白天"
+      sky_category.save
+      sky_category
+    end
+    rescue ActiveRecord::RecordNotFound
+      sky_category = SkyCategory.new
+      sky_category.name="白天"
+      sky_category.save
+      sky_category
   end
 
 end

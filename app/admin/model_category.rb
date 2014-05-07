@@ -4,7 +4,14 @@ ActiveAdmin.register ModelCategory do
   menu :priority =>7,:label =>"设计模型分类",:parent => "模型管理"
   #
   permit_params :name
-
+  #列表
+  index :title => '设计模型分类列表' do
+    selectable_column
+    column "分类名称",:name
+    default_actions
+  end
+  #filter
+  filter :name ,:label=>"分类名称"
   #编辑修改
   form :html => { :enctype => "multipart/form-data" } do |f|
     f.inputs "模型分类信息" do
