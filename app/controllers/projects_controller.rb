@@ -3,9 +3,6 @@ class ProjectsController < ApplicationController
     @project=Project.find_by_number(params[:number])
     if @project!=nil
       @unity3ds=@project.unity3ds
-      respond_to do |format|
-        format.json { render json: @unity3ds }
-      end
    else
        render :text=> 'error'
    end

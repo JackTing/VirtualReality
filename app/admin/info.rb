@@ -9,7 +9,7 @@ ActiveAdmin.register Info do
     column "属性名称",:key
     column "属性值",:value
     column "属性图片",:image
-    default_actions
+    actions
    end
    #
    filter :key,:label=>"属性名称"

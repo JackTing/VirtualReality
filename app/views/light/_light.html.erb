@@ -1,8 +1,8 @@
 
 <div class="form-group">
     <label for="small" class="control-label">灯光角度设置</label>
-    <input id="lightAngleY" data-slider-id='lightAngleYSlider' type="text" data-slider-min="-180" data-slider-max="180" data-slider-step="150" data-slider-value="90" style="width:100%"/>
-    <input id="lightAngleX" data-slider-id='lightAngleZSlider' type="text" data-slider-min="-180" data-slider-max="180" data-slider-step="10" data-slider-value="45" style="width:100%"/>
+    <input id="lightAngleY" data-slider-id='lightAngleYSlider' type="text" data-slider-min="-180" data-slider-max="180" data-slider-step="1" data-slider-value="90" style="width:100%"/>
+    <input id="lightAngleX" data-slider-id='lightAngleZSlider' type="text" data-slider-min="-180" data-slider-max="180" data-slider-step="1" data-slider-value="45" style="width:100%"/>
 </div>
 <div class="form-group">
     <label for="small" class="control-label">灯光强度设置</label>
@@ -17,8 +17,13 @@
 
 <hr>
 <div class="form-group">
+    <label for="small" class="control-label">雾效远近设置</label>
+    <input id="fogDistance" data-slider-id='ex1Slider' type="text" data-slider-min="0" data-slider-max="5000" data-slider-step="0.1" data-slider-value="1200" style="width:100%"/>
+</div>
+
+<div class="form-group">
     <label for="small" class="control-label">雾效强度设置</label>
-    <input id="fogDensity" data-slider-id='ex1Slider' type="text" data-slider-min="0.1" data-slider-max="1" data-slider-step="0.1" data-slider-value="0.7" style="width:100%"/>
+    <input id="fogDensity" data-slider-id='ex1Slider' type="text" data-slider-min="0" data-slider-max="1" data-slider-step="0.01" data-slider-value="0.01" style="width:100%"/>
 </div>
 
 <div class="form-group">
@@ -53,6 +58,10 @@
 	$("#fogDensity").slider();
 	$("#fogDensity").on('slide', function(slideEvt) {
  	 		UnityObject.getUnity().SendMessage("Lights","ActiveFogDensity",slideEvt.value.toString());
+	 });
+	$("#fogDistance").slider();
+	$("#fogDistance").on('slide', function(slideEvt) {
+ 	 		UnityObject.getUnity().SendMessage("Lights","ActiveFogDistance",slideEvt.value.toString());
 	 });
 	$("input#fog").ColorPickerSliders({
 	    size: 'sm',

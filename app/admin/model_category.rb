@@ -8,7 +8,7 @@ ActiveAdmin.register ModelCategory do
   index :title => '设计模型分类列表' do
     selectable_column
     column "分类名称",:name
-    default_actions
+    actions
   end
   #filter
   filter :name ,:label=>"分类名称"

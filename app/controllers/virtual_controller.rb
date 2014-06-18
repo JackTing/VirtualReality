@@ -5,7 +5,13 @@ class VirtualController < ApplicationController
 		@texture_category = current_texture_category
 		@model_category=current_model_category
 		@sky_category=current_sky_category
-		render :action=>'show'
+
+		unless current_user.projects.empty?
+			@current_project=current_user.projects[0].source.url
+			render :action=>'show'
+		else
+			render :action=>'error'
+		end
 	end
     private
 	def user_layout 

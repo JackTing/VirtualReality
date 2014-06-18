@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140501070440) do
+ActiveRecord::Schema.define(version: 20140617103133) do
 
   create_table "active_admin_comments", force: true do |t|
     t.string   "namespace"
@@ -74,6 +74,13 @@ ActiveRecord::Schema.define(version: 20140501070440) do
     t.string   "image"
   end
 
+  create_table "plan_projects", force: true do |t|
+    t.integer  "plan_id"
+    t.integer  "project_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
   create_table "plan_unity3ds", force: true do |t|
     t.integer  "plan_id"
     t.integer  "unity3d_id"
@@ -91,6 +98,12 @@ ActiveRecord::Schema.define(version: 20140501070440) do
     t.datetime "updated_at"
   end
 
+  create_table "posts", force: true do |t|
+    t.string   "name"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
   create_table "project_unity3ds", force: true do |t|
     t.integer  "project_id"
     t.integer  "unity3d_id"
@@ -104,6 +117,7 @@ ActiveRecord::Schema.define(version: 20140501070440) do
     t.text     "info"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.string   "source"
   end
 
   create_table "roles", force: true do |t|
@@ -194,6 +208,13 @@ ActiveRecord::Schema.define(version: 20140501070440) do
   end
 
   add_index "unity3ds", ["name"], name: "index_unity3ds_on_name"
+
+  create_table "user_projects", force: true do |t|
+    t.integer  "user_id"
+    t.integer  "project_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
   create_table "users", force: true do |t|
     t.string   "email",                  default: "", null: false

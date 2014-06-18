@@ -19,11 +19,10 @@ ActiveAdmin.register Unity3d do
     column "其它选项信息",:option
     column "是否参与进度",:plan
     column "子物体数量",:num
-    default_actions
+    actions
   end
   #左侧过滤
-  filter :name,:label=>"工程名称"
-  filter :category,:label=>"种类"
+  filter :projects,:label=>"隶属项目"
   #编辑修改
   form :html => { :enctype => "multipart/form-data" } do |f|
     f.inputs "模型信息" do

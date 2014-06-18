@@ -6,7 +6,7 @@ ActiveAdmin.register Layer do
   index :title => '图层列表' do  
     selectable_column
     column "名称",:name                   
-    default_actions    
+    actions    
   end        
   #filter
   filter :name ,:label=>"图层名称"

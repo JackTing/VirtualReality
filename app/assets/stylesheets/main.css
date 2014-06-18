@@ -35,13 +35,6 @@ div#unityPlayer {
 /* main
 -------------------------------------------------- */
 
-.navbar-brand {
-    background: url("/images/logo.png") no-repeat scroll 0% 0% transparent;
-    width: 260px;
-    height: 40px;
-    margin: 5px;
-}
-
 /* Wrapper for page content to push down footer */
 #wrap {
   min-height: 100%;

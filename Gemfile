@@ -32,7 +32,7 @@ gem 'cancan'
 gem 'rolify'
 #admin 
 gem 'activeadmin', github: 'gregbell/active_admin'
-
+#gem 'thin'
 #page
 gem 'kaminari', '~> 0.15.0'
 # file upload

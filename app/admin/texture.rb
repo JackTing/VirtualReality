@@ -11,7 +11,7 @@ ActiveAdmin.register Texture do
       image_tag texture.image_url(:thumb)
    end
    column "名称",:name
-   default_actions
+   actions
   end
 
 

@@ -11,7 +11,7 @@ ActiveAdmin.register Sky do
       image_tag sky.image_url(:thumb)
    end
    column "名称",:name
-   default_actions
+   actions
   end
 
 

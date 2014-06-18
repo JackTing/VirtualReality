@@ -1,5 +1,4 @@
 //Unity3d Js
-
 var config = {
 	height:window.innerHeight-120,
 	params: {                                                 // 文本颜色
@@ -12,10 +11,11 @@ var config = {
 };
 
 var UnityObject = new UnityObject2(config);
-jQuery(function() {
-			ActiveUnityObject();
-});
-function ActiveUnityObject()
+// jQuery(function() {
+// 	alert("<%=@tt %>")
+// 			ActiveUnityObject('<%= @current_project %>');
+// });
+function ActiveUnityObject(main_file)
 {
 	var $missingScreen = jQuery("#unityPlayer").find(".missing");
 	var $brokenScreen = jQuery("#unityPlayer").find(".broken");
@@ -49,7 +49,7 @@ function ActiveUnityObject()
 			break;
 		}
 	});
-	UnityObject.initPlugin(jQuery("#unityPlayer")[0], "/Data/main.unity3d");
+	UnityObject.initPlugin(jQuery("#unityPlayer")[0], main_file);
 }
 //Web Call Unity3d
 function ActiveCamera(camera_name)

@@ -16,7 +16,9 @@ ActiveAdmin.register Plan do
     column "计划工作量",:quantitiesplan
     column "完成工作量",:quantitiesfact
     column "完成百分比",:wbspctcomp
-    default_actions    
+      
+
+    actions
   end        
   #filter
   filter :wbsno ,:label=>"序号"
@@ -29,7 +31,6 @@ ActiveAdmin.register Plan do
       f.input :quantitiesplan,:label=>"计划工作量"
       f.input :quantitiesfact,:label=>"完成工作量"
       f.input :wbspctcomp,:label=>"完成百分比"
-      #f.input :unity3ds,:label=>"关联模型", as: :radio, collection: Unity3d.all
       f.input :unity3ds,:label=>"关联模型", as: :select,:input_html => { :size =>15,:style=>'width:250px',:multiple => false},  collection: Unity3d.all.map{|u| ["#{u.category}--#{u.name}", u.id]}
     end
     #f.inputs "添加内容" do
@@ -67,7 +68,6 @@ ActiveAdmin.register Plan do
       add_unity3d(@plan)
       create!
     end
-
     def update
       add_unity3d(resource)
       update!

@@ -10,7 +10,7 @@ ActiveAdmin.register User do
     column "当前登陆时间",:current_sign_in_at
     column "上次登陆时间",:last_sign_in_at
     column "登陆次数",:sign_in_count
-    default_actions
+    actions
   end
 
   filter :email,:label=>"账户"
@@ -20,6 +20,8 @@ ActiveAdmin.register User do
       f.input :email,:label=>"账户"
       f.input :password,:label=>"密码"
       f.input :roles,:label=>"角色", as: :check_boxes, collection: Role.all
+      f.input :projects,:label=>"隶属项目",as: :select,:input_html => { :size =>15,:style=>'width:250px',:multiple => false},  collection: Project.all.map{|u| ["#{u.name}", u.id]}
+
       f.input :password_confirmation,:label=>"验证密码"
     end
     f.actions
@@ -35,6 +37,9 @@ ActiveAdmin.register User do
       row :roles do |r|
         r.roles.map { |role| role.name }.join(", ")
       end
+      row :projects do |r|
+        r.projects.map { |project| project.name }.join(", ")
+      end
     end
   end
 
@@ -46,11 +51,13 @@ ActiveAdmin.register User do
     def create
       @user = User.new(permitted_params[:user])
       add_roles(@user)
+      add_projects(@user)
       create!
     end
 
     def update
       add_roles(resource)
+      add_projects(resource)
       update!
     end
 
@@ -58,6 +65,10 @@ ActiveAdmin.register User do
     def add_roles(resource)
       resource.roles = []
       params[:user][:role_ids].each { |r| resource.roles.push(Role.find(r)) unless r.blank? }
+    end
+    def add_projects(resource)
+      resource.projects = []
+      params[:user][:project_ids].each { |r| resource.projects.push(Project.find(r)) unless r.blank? }
     end
    end
 end

@@ -9,7 +9,7 @@ ActiveAdmin.register Role do
   index :title => '角色列表'  do
     selectable_column
     column "角色",:name
-    default_actions
+    actions
   end
   #filter
   filter :name,:label=>"名称"

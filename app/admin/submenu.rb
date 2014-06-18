@@ -9,7 +9,7 @@ ActiveAdmin.register Submenu do
     column "菜单名称",:name
     column "排序",:custom_sort
     column "菜单命令",:action
-    default_actions
+    actions
   end
   
   form do |f|

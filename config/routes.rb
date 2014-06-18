@@ -1,10 +1,10 @@
 VirtualReality::Application.routes.draw do
   
-  root 'virtual#show'
+ 
   ActiveAdmin.routes(self) 
   
   devise_for :users, ActiveAdmin::Devise.config
-
+   root 'virtual#show'
   resources :layers
   resources :textures
   resources :model_categories

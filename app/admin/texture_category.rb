@@ -10,7 +10,7 @@ ActiveAdmin.register TextureCategory do
   index :title=>"材质分类列表" do
     selectable_column
     column "名称",:name
-    default_actions
+    actions
   end
 
   filter :name,:label=>"分类名称"
