@@ -1,7 +1,7 @@
 class VirtualController < ApplicationController
 	layout :user_layout
 	before_filter:authenticate_user!
-	def show
+	def show	
 		@texture_category = current_texture_category
 		@model_category=current_model_category
 		@sky_category=current_sky_category
@@ -15,10 +15,15 @@ class VirtualController < ApplicationController
 	end
     private
 	def user_layout 
-	    if current_user.has_role? :designer
-	      "design"  
-	    else
-	      "application"
-	    end  
+		if current_user
+		    if current_user.has_role? :designer
+		      "design"  
+		    else
+		      "application"
+		    end  
+		 else
+		 	"devise"
+
+		 end
 	end  
 end
