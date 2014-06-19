@@ -7,4 +7,13 @@ class ProjectsController < ApplicationController
        render :text=> 'error'
    end
   end
+  def plans
+  	@project=Project.find_by_number(params[:number])
+    if @project!=nil
+      @plans=@project.plans
+   else
+       render :text=> 'error'
+   end
+  	
+  end
 end

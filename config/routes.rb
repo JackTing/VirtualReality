@@ -28,6 +28,7 @@ VirtualReality::Application.routes.draw do
      # resources :textures
   #end
   get "get_all_plans" => "plans#all"
+  get "get_all_plans/:number" =>"projects#plans"
   get "get_plan/:wbsno" => "plans#plan"
   get "get_info/:objectname" => "unity3ds#infos"
   get "get_layers"=>"layers#all"

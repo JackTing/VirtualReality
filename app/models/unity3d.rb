@@ -37,6 +37,9 @@ class Unity3d < ActiveRecord::Base
     	field :num do
     		label "子物体数量"
     	end
+        field :project do
+            label "所属项目"
+        end
     end
     edit do
       field :name do
