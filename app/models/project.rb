@@ -37,6 +37,12 @@ class Project < ActiveRecord::Base
 	    	field :info do
 	    		label "项目简介"
 	    	end
+	    	field :projecs do
+	    		label "关联进度模型"
+	    	end
+	    	field :plans do
+	    		label "关联进度"
+	    	end
 	    end
 	end
 end
