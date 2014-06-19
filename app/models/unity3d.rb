@@ -16,6 +16,9 @@ class Unity3d < ActiveRecord::Base
     navigation_label "进度与模型管理"
  	label_plural "进度模型"
     list do
+        field :projects do
+            label "所属项目"
+        end
     	field :name do
     		label "工程名称"
     	end
@@ -37,9 +40,6 @@ class Unity3d < ActiveRecord::Base
     	field :num do
     		label "子物体数量"
     	end
-        field :project do
-            label "所属项目"
-        end
     end
     edit do
       field :name do
