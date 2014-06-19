@@ -31,8 +31,9 @@ gem 'devise'
 gem 'cancan'
 gem 'rolify'
 #admin 
-gem 'activeadmin', github: 'gregbell/active_admin'
-#gem 'thin'
+gem 'rails_admin', :git => 'git://github.com/JackTing/rails_admin.git', :branch => 'release_1.1'
+gem 'rails_admin_flatly_theme', :git => 'git://github.com/JackTing/rails_admin_flatly_theme.git', :branch => 'release_1.1'
+gem 'thin'
 #page
 gem 'kaminari', '~> 0.15.0'
 # file upload

@@ -1,10 +1,11 @@
 VirtualReality::Application.routes.draw do
   
- 
-  ActiveAdmin.routes(self) 
   
-  devise_for :users, ActiveAdmin::Devise.config
-   root 'virtual#show'
+  root 'virtual#show'
+  devise_for :users
+  
+  mount RailsAdmin::Engine => '/admin', :as => 'rails_admin'
+
   resources :layers
   resources :textures
   resources :model_categories

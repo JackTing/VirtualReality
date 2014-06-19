@@ -5,7 +5,7 @@ require 'rails/all'
 # Require the gems listed in Gemfile, including any gems
 # you've limited to :test, :development, or :production.
 Bundler.require(:default, Rails.env)
-
+ENV['RAILS_ADMIN_THEME'] = 'flatly_theme'
 module VirtualReality
   class Application < Rails::Application
     # Settings in config/environments/* take precedence over those specified here.
@@ -17,8 +17,7 @@ module VirtualReality
     # config.time_zone = 'Central Time (US & Canada)'
 
     # The default locale is :en and all translations from config/locales/*.rb,yml are auto loaded.
-    # config.i18n.load_path += Dir[Rails.root.join('my', 'locales', '*.{rb,yml}').to_s]
+     #config.i18n.load_path += Dir[Rails.root.join('my', 'locales', '*.{rb,yml}').to_s]
     config.i18n.default_locale = 'zh-CN'
-    config.i18n.enforce_available_locales = false
   end
 end

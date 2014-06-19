@@ -3,4 +3,19 @@ class Role < ActiveRecord::Base
   belongs_to :resource, :polymorphic => true
   
   scopify
+
+  rails_admin do
+  	label_plural '角色管理'
+    parent User
+  	 list do
+  	 	field :name do
+  	 		label "角色"
+  	 	end
+  	 end
+  	 edit do
+  	 	field :name do
+  	 		label "角色"
+  	 	end
+  	 end
+  end
 end
