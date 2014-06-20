@@ -5,11 +5,16 @@ class Project < ActiveRecord::Base
     has_many :users, :through => :user_projects
     has_many :plan_projects
     has_many :plans, :through => :plan_projects
-
+    has_many :layer_projects
+ 	has_many :layers,:through=> :layer_projects
+    
     mount_uploader :source,ProjectUploader
     resourcify
     rails_admin do
 	 	label_plural "项目管理"
+	 	configure :layers do
+	      # configuration here
+	    end
 	    list do
 	    	field :name do
 	    		label "项目名称"
@@ -37,11 +42,14 @@ class Project < ActiveRecord::Base
 	    	field :info do
 	    		label "项目简介"
 	    	end
-	    	field :projecs do
+	    	field :unity3ds do
 	    		label "关联进度模型"
 	    	end
 	    	field :plans do
 	    		label "关联进度"
+	    	end
+	    	field :layers do
+	    		label "关联图层"
 	    	end
 	    end
 	end

@@ -1,8 +1,8 @@
 class Plan < ActiveRecord::Base
-	has_many :plan_unity3ds
+	has_many :plan_unity3ds,:dependent => :destroy
     has_many :unity3ds, :through => :plan_unity3ds
 
-    has_many :plan_projects
+    has_many :plan_projects,:dependent => :destroy
     has_many :projects,:through=> :plan_projects
 
 	resourcify
@@ -11,6 +11,9 @@ class Plan < ActiveRecord::Base
   		label_plural '计划管理'
         parent Unity3d
   		list do
+            field :projects do
+                label "隶属项目"
+            end
     		field :wbsno do
     			label "序号"
     		end
@@ -26,9 +29,7 @@ class Plan < ActiveRecord::Base
     		field :wbspctcomp do
     			label "完成百分比"
     		end
-            field :projects do
-                label "隶属项目"
-            end
+            
     	end
     	edit do
     		field :wbsno do

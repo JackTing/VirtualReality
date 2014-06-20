@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140618030317) do
+ActiveRecord::Schema.define(version: 20140620135836) do
 
   create_table "active_admin_comments", force: true do |t|
     t.string   "namespace"
@@ -38,6 +38,13 @@ ActiveRecord::Schema.define(version: 20140618030317) do
   end
 
   add_index "infos", ["unity3d_id"], name: "index_infos_on_unity3d_id"
+
+  create_table "layer_projects", force: true do |t|
+    t.integer  "layer_id"
+    t.integer  "project_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
   create_table "layer_unity3ds", force: true do |t|
     t.integer  "layer_id"

@@ -69,11 +69,14 @@ class Unity3d < ActiveRecord::Base
     	field :projects do
     		label "所属项目"
     	end
+        field :layers do
+            label "所属图层"
+        end
         field :plans do
             label "关联进度"
         end
         field :infos do
-            label "信息"
+            label "物体属性"
         end
     end
      weight 0

@@ -45,7 +45,8 @@ RailsAdmin.config do |config|
                               "Texture",
                               "TextureCategory",
                               "Sitemenu",
-                              "Submenu"]
+                              "Submenu",
+                               "Layer"]
   
 
 end

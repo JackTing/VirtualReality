@@ -32,6 +32,7 @@ VirtualReality::Application.routes.draw do
   get "get_plan/:wbsno" => "plans#plan"
   get "get_info/:objectname" => "unity3ds#infos"
   get "get_layers"=>"layers#all"
+  get "get_layers/:number"=>"projects#layers"
   #custom all 
   get "get_unity3ds/:number"=>"projects#unity3ds"
   get "get_all_unity3ds" => "unity3ds#all"
