@@ -15,7 +15,7 @@ class Layer < ActiveRecord::Base
 	    		label "图层名称"
 	    	end
 	    	field :unity3ds do
-	    		label "管理模型"
+	    		label "关联模型"
 	    	end
  		end
  		edit do
@@ -28,7 +28,7 @@ class Layer < ActiveRecord::Base
 	    	end
 
 	    	field :unity3ds do
-	    		label "管理模型"
+	    		label "关联模型"
 	    	end
  		end
     end
