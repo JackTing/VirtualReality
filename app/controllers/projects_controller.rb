@@ -23,4 +23,12 @@ class ProjectsController < ApplicationController
       render :text=> 'error'
     end
   end
+  def unity3d_names
+    @project=Project.find_by_number(params[:number])
+    if @project!=nil
+      @unity3ds=@project.unity3ds
+    else
+      render :text=> 'error'
+    end
+  end
 end

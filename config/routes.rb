@@ -37,6 +37,7 @@ VirtualReality::Application.routes.draw do
   get "get_unity3ds/:number"=>"projects#unity3ds"
   get "get_all_unity3ds" => "unity3ds#all"
   get "get_all_names" => "unity3ds#all_names"
+  get "get_all_names/:number"=>"projects#unity3d_names"
   # Example of regular route:
    #  get 'plans/:wbsno' => 'plans#show'
 
