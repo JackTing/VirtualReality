@@ -94,7 +94,7 @@ zh-CN:
     table_headers:
       model_name: "模型名称"
       last_used: "最后使用"
-      records: "Records"
+      records: "记录"
       username: "用户"
       changes: "改变"
       created_at: "日期/时间"

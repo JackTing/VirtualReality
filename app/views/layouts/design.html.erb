@@ -33,7 +33,7 @@
              </ul>
             <!-- Links -->
             <ul class="nav navbar-nav pull-right">
-              <%= render :partial => "sitemenus/sitemenus",:object=>Sitemenu.all%> 
+              <%= render :partial => "sitemenus/sitemenus",:object=>project_sitemenus%> 
               <li class="dropdown pull-right">            
                  <a data-toggle="dropdown" class="dropdown-toggle" href="#">
                   <% if user_signed_in? %>  

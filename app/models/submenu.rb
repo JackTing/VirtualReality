@@ -4,6 +4,9 @@ class Submenu < ActiveRecord::Base
 	  	label_plural "子菜单"
 	  	parent Sitemenu
 	    list do
+	      field :sitemenu do
+	      	label "所属主菜单"
+	      end
 	      field :name do
 	        label "菜单名称"
 	      end
@@ -15,6 +18,9 @@ class Submenu < ActiveRecord::Base
 	      end
 	  	end
 	  	edit do
+	  	  field :sitemenu do
+	      	label "所属主菜单"
+	      end
 	      field :name do
 	        label "菜单名称"
 	      end
@@ -24,9 +30,7 @@ class Submenu < ActiveRecord::Base
 	      field :custom_sort do
 	      	label "自定义排序"
 	      end
-	      field :sitemenu do
-	      	label "所属主菜单"
-	      end
+	      
 	  	end
 	  	weight 3
 	 end

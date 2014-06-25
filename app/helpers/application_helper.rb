@@ -12,4 +12,7 @@ module ApplicationHelper
     end  
     return a  
   end
+  def project_sitemenus
+    Project.find_by_number(current_user.project.number).sitemenus 
+  end
 end

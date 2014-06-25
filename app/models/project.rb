@@ -1,13 +1,14 @@
 class Project < ActiveRecord::Base
-	has_many :project_unity3ds
+	has_many :project_unity3ds,:dependent => :destroy
     has_many :unity3ds, :through => :project_unity3ds
-    has_many :user_projects
-    has_many :users, :through => :user_projects
-    has_many :plan_projects
+    has_many :users,:dependent => :destroy
+    has_many :plan_projects,:dependent => :destroy
     has_many :plans, :through => :plan_projects
-    has_many :layer_projects
+    has_many :layer_projects,:dependent => :destroy
  	has_many :layers,:through=> :layer_projects
     
+    has_many :sitemenus,:dependent => :destroy
+
     mount_uploader :source,ProjectUploader
     resourcify
     rails_admin do

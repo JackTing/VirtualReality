@@ -31,4 +31,12 @@ class ProjectsController < ApplicationController
       render :text=> 'error'
     end
   end
+  def get_sitmenus
+     @project=Project.find_by_number(current_user.projects[0])
+    if @project!=nil
+      @sitemenus=@project.sitemenus
+    else
+      render :text=> 'error'
+    end
+  end
 end

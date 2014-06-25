@@ -5,8 +5,7 @@ class User < ActiveRecord::Base
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable
 
-  has_many :user_projects,:dependent => :destroy
-  has_many :projects, :through => :user_projects
+  belongs_to :project
 
   rails_admin do
     navigation_label "用户管理"
@@ -39,7 +38,7 @@ class User < ActiveRecord::Base
       field :roles do 
         label "角色"
       end
-      field :projects do 
+      field :project do 
         label "隶属项目"
       end
     end

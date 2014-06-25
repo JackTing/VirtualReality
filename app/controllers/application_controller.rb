@@ -19,6 +19,7 @@ class ApplicationController < ActionController::Base
        redirect_to root_path
      end
   end
+
   private
   def current_texture_category
       @texture_categories=TextureCategory.all

@@ -6,11 +6,11 @@ class VirtualController < ApplicationController
 		@model_category=current_model_category
 		@sky_category=current_sky_category
 
-		unless current_user.projects.empty?
-			@current_project=current_user.projects[0].source.url
+		if current_user.project
+			@current_project=current_user.project.source.url
 			render :action=>'show'
 		else
-			render :action=>'error'
+			render :text=>'error'
 		end
 	end
     private

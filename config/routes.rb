@@ -27,6 +27,7 @@ VirtualReality::Application.routes.draw do
   #resources :texturecategories do
      # resources :textures
   #end
+  get "projects/sitemenus"=>"projects#get_sitmenus"
   get "get_all_plans" => "plans#all"
   get "get_all_plans/:number" =>"projects#plans"
   get "get_plan/:wbsno" => "plans#plan"

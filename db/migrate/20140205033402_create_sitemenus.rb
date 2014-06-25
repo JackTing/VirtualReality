@@ -4,7 +4,7 @@ class CreateSitemenus < ActiveRecord::Migration
       t.string :name
       t.integer :custom_sort
       t.text :action
-
+      t.references :project,index: true
       t.timestamps
     end
   end
