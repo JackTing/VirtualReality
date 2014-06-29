@@ -40,6 +40,6 @@ class Sitemenu < ActiveRecord::Base
 	      	label "子菜单"
 	      end
 	  	end
-	  	weight 3
+	  	weight 4
 	 end
 end

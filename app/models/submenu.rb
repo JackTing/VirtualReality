@@ -32,6 +32,5 @@ class Submenu < ActiveRecord::Base
 	      end
 	      
 	  	end
-	  	weight 3
 	 end
 end

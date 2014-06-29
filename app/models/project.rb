@@ -1,7 +1,7 @@
 class Project < ActiveRecord::Base
 	has_many :project_unity3ds,:dependent => :destroy
     has_many :unity3ds, :through => :project_unity3ds
-    has_many :users,:dependent => :destroy
+    has_many :users
     has_many :plan_projects,:dependent => :destroy
     has_many :plans, :through => :plan_projects
     has_many :layer_projects,:dependent => :destroy
